@@ -20,7 +20,7 @@ if __name__ == "__main__":
     
     print(banner)
     
-    usage = "python3 wdldumper.py -m [wdigest/dump] -d [domain/workgroup] -u user -p password -t [IP/targets.txt]"
+    usage = "python3 wdldumper.py -m [wdigest/dump] -d [domain/workgroup] -u [admin] -p [password] -t [IP/targets.txt]"
     
     parser = argparse.ArgumentParser(usage=usage)
     parser.add_argument("-m", "--mode", help="wdigest or dump (enable wdigest or perform an lsass dump on target)")
