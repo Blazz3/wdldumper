@@ -20,11 +20,11 @@ if __name__ == "__main__":
     
     print(banner)
     
-    usage = "python3 wdldumper.py -m [wdigest/dump] -d domain -u user -p password -t [IP/targets.txt]"
+    usage = "python3 wdldumper.py -m [wdigest/dump] -d [domain/workgroup] -u user -p password -t [IP/targets.txt]"
     
     parser = argparse.ArgumentParser(usage=usage)
     parser.add_argument("-m", "--mode", help="wdigest or dump (enable wdigest or perform an lsass dump on target)")
-    parser.add_argument("-d", "--domn", help="domain to authenticate")
+    parser.add_argument("-d", "--domn", help="domain/workgroup to authenticate")
     parser.add_argument("-u", "--user", help="username to authenticate as")
     parser.add_argument("-p", "--pasw", help="password to authenticate with, leave blank for prompt")
     parser.add_argument("-t", "--targ", help="target ip or list of targets")
