@@ -9,6 +9,7 @@ Simple wrapper to dump lsass: enable remote wdigest (impacket wmiexec.py powersh
 Python => 3.6 needed.
 
 Dependencies:
+
 https://github.com/SecureAuthCorp/impacket
 
 https://github.com/skelsec/pypykatz
