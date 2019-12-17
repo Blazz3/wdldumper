@@ -8,5 +8,7 @@ Python => 3.6 needed.
 
 Dependencies:
 https://github.com/SecureAuthCorp/impacket
+
 https://github.com/skelsec/pypykatz
+
 https://github.com/Hackndo/lsassy
