@@ -12,7 +12,8 @@ banner = """
 88  8  8 88   8 88    88   8 8e  8 8e 8  8 8eee8 8eee 8eee8e 
 88  8  8 88   8 88    88   8 88  8 88 8  8 88    88   88   8 
 88ee8ee8 88eee8 88eee 88eee8 88ee8 88 8  8 88    88ee 88   8 
-                                                             
+
+by blazz3
 """
 
 if __name__ == "__main__":
