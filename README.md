@@ -2,6 +2,8 @@
 
 WDLDumper > WDigest Lsass Dumper
 
+![alt text](https://i.imgur.com/XeM986l.jpg)
+
 Simple wrapper to dump lsass: enable remote wdigest (impacket wmiexec.py powershell), perform remote lsass dump (impacket wmiexec.py powershell) and lsass parsing (pypykatz + lsassy).
 
 Python => 3.6 needed.
