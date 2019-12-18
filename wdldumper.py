@@ -92,7 +92,7 @@ if __name__ == "__main__":
                 if "Completed" in command_output:
                     print("Wdigest enabled on {}!".format(args.targ))
                 else:
-                    print("Error enabling wdigest! Try again.")
+                    print("Error enabling wdigest! Try again")
                     sys.exit()
             else:
                 f = open(args.targ, 'r').read().split('\n')
@@ -108,7 +108,7 @@ if __name__ == "__main__":
                         if "Completed" in command_output:
                             print("Wdigest enabled on {}!".format(ip))
                         else:
-                            print("Error enabling wdigest! Try again.")
+                            print("Error enabling wdigest! Try again")
                             sys.exit()
                     else:
                         print("Specify a valid ip address list\n")
@@ -126,7 +126,7 @@ if __name__ == "__main__":
                 if "Completed" in command_output:
                     print("Wdigest enabled on {}!".format(args.targ))
                 else:
-                    print("Error enabling wdigest! Try again.")
+                    print("Error enabling wdigest! Try again")
                     sys.exit()
             else:
                 f = open(args.targ, 'r').read().split('\n')
@@ -142,7 +142,7 @@ if __name__ == "__main__":
                         if "Completed" in command_output:
                             print("Wdigest enabled on {}!".format(ip))
                         else:
-                            print("Error enabling wdigest! Try again.")
+                            print("Error enabling wdigest! Try again")
                             sys.exit()
                     else:
                         print("Specify a valid ip address list\n")
@@ -171,9 +171,9 @@ if __name__ == "__main__":
                 command_output = subprocess.check_output(command1, shell=True)
                 command_output = command_output.decode("utf-8")
                 if "Completed" in command_output:
-                    print("Dump executed on {}...".format(args.targ))
+                    print("Dump executed on {}".format(args.targ))
                 else:
-                    print("Error dumping on {}, try again.".format(args.targ))
+                    print("Error dumping on {}, try again".format(args.targ))
                     sys.exit()
                 command_output = subprocess.check_output(command2, shell=True)
                 command_output = command_output.decode("utf-8")
@@ -184,9 +184,9 @@ if __name__ == "__main__":
                     print("Nothing to show on lsassy...")
             except subprocess.CalledProcessError as e:
                 if "invalid" in e.output.decode("utf-8"):
-                    print("Error, invalid credentials on {}!\n".format(args.targ))
+                    print("Error, invalid credentials on {}\n".format(args.targ))
                 else:
-                    print("Error dumping on {}!\n".format(ip))
+                    print("Error dumping on {}\n".format(ip))
         else:
             f = open(args.targ, 'r').read().split('\n')
             for ip in f:
@@ -206,7 +206,7 @@ if __name__ == "__main__":
                         if "Completed" in command_output:
                             print("Dump executed on {}".format(ip))
                         else:
-                            print("Error dumping on {}, try again.".format(ip))
+                            print("Error dumping on {}, try again".format(ip))
                         command_output = subprocess.check_output(command2, shell=True)
                         command_output = command_output.decode("utf-8")
                         if "[+]" in command_output:
@@ -216,7 +216,7 @@ if __name__ == "__main__":
                             print("Nothing to show on lsassy...")
                     except subprocess.CalledProcessError as e:
                         if "invalid" in e.output.decode("utf-8"):
-                            print("Error, invalid credentials on {}!\n".format(ip))
+                            print("Error, invalid credentials on {}\n".format(ip))
                         else:
-                            print("Error dumping on {}!\n".format(ip))
+                            print("Error dumping on {}\n".format(ip))
                             
