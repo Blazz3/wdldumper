@@ -183,7 +183,8 @@ if __name__ == "__main__":
                 else:
                     print("Nothing to show on lsassy...")
             except subprocess.CalledProcessError as e:
-                print(e.output)
+                if "invalid" in e.output.decode("utf-8"):
+                    print("Invalid credentials on {}!".format(args.targ))
         else:
             f = open(args.targ, 'r').read().split('\n')
             for ip in f:
