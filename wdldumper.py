@@ -172,7 +172,7 @@ if __name__ == "__main__":
             if "Completed" in command_output:
                 print("Dump executed on {}...".format(args.targ))
             else:
-                print("Error on dumping! Try again.")
+                print("Error dumping on {}, try again.".format(args.targ))
                 sys.exit()
             command_output = subprocess.check_output(command2, shell=True)
             command_output = command_output.decode("utf-8")
@@ -199,8 +199,7 @@ if __name__ == "__main__":
                     if "Completed" in command_output:
                         print("Dump executed on {}".format(ip))
                     else:
-                        print("Error on dumping! Try again.")
-                        break
+                        print("Error dumping on {}, try again.".format(ip))
                     command_output = subprocess.check_output(command2, shell=True)
                     command_output = command_output.decode("utf-8")
                     if "[+]" in command_output:
